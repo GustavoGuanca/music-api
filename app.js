@@ -1,12 +1,17 @@
 require("dotenv").config()
-
 const express = require("express")
 const cors = require("cors")
-
+const dbConnect = require('./config/mongo')
 const app = express() 
 
-const port = process.env.PORT || 3000
+app.use(cors())
+
+
+const port = process.env.PORT || 3008
+
 
 app.listen(port, () => {
-    console.log(`Tu app esta listo por http://localhost:${port}`)
+    console.log(`La app esta corriendo en http://localhost:${port}`)
 })
+
+dbConnect()
